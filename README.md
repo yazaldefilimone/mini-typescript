@@ -1,6 +1,6 @@
-- Mini Typescript
+#### Mini Typescript
 
-- Exercises
+#### Exercises
 
 - [ ] Add EmptyStatement.
 - [ ] Make semicolon a statement ender, not statement separator.
@@ -23,7 +23,7 @@
 - [ ] Add function declarations and function calls.
 - [ ] Add arrow functions with an appropriate transform in ES5.
 
-### To get set up
+#### To get set up
 
 ```sh
 git clone https://github.com/sandersn/mini-typescript
@@ -41,7 +41,7 @@ npm run build --watch
 npm run mtsc ./tests/singleVar.ts
 ```
 
-### To switch to centi-typescript
+#### To switch to centi-typescript
 
 ```sh
 git checkout centi-typescript
