@@ -58,13 +58,14 @@ I realised a small Typescript would be useful to others who want to learn how th
 
 So that's micro-typescript: a textbook compiler that implements a tiny bit of Typescript in a way that's a tiny bit like the Typescript compiler. [centi-typescript](https://github.com/sandersn/mini-typescript/tree/centi-typescript), on the other hand, is a 1/100 scale model of the Typescript compiler. It's intended as a reference in code for peopple who want to see how the Typescript compiler actually works, without the clutter caused by real-life compatibility and requirements. Currently centi-typescript is most complete in the checker, because most of Typescript's complexity is there.
 
-## Limitations
+#### Limitations
 
 1. This is an example of the way that Typescript's compiler does things. A compiler textbook will help you learn _compilers_. This project will help you learn _Typescript's code_.
 2. This is only a tiny slice of the language, also unlike a textbook. Often I only put it one instance of a thing, like nodes that introduce a scope, to keep the code size small.
 3. There is no laziness, caching or node reuse, so the checker and transformer code do not teach you those aspects of the design.
 4. There's no surrounding infrastructure, like a language service or a program builder. This is just a model of tsc.
 
-This is a fork from [Nathan Shively-Sanders](https://github.com/sandersn)'s [mini-typescript](https://github.com/sandersn/mini-typescript).
+#### Credits
 
-The purpose of this repo is to practice the exercises and learn more about compilers and TypeScript.
+- This project is part of the [mini-typescript](https://github.com/sandersn/mini-typescript) initiated by [Nathan Shively-Sanders](https://github.com/sandersn)'s.
+  - The purpose of this repo is to practice the exercises and learn more about compilers and TypeScript.
