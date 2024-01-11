@@ -7,7 +7,9 @@
     "build": "tsc",
     "test": "rm baselines/local/*; tsc && node built/test.js",
     "accept": "mv baselines/local/* baselines/reference/",
-    "mtsc": "node built/index.js"
+    "mtsc": "node built/index.js",
+    "format": "prettier --write './**/*.ts'"
+    
   },
   "repository": {
     "type": "git",
@@ -28,7 +30,8 @@
   },
   "homepage": "https://github.com/sandersn/mini-typescript#readme",
   "devDependencies": {
-    "@types/node": "^20.2.5",
-    "typescript": "latest"
+    "@types/node": "^20.11.0",
+    "typescript": "latest",
+      "prettier": "^3.0.3"
   }
 }
