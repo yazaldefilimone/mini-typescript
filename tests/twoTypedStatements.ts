@@ -1,2 +1,2 @@
-var s: string = 1
+var s: string = 1;
 s = 2
