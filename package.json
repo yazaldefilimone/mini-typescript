@@ -9,8 +9,7 @@
     "test:bun": "rm baselines/local/*; tsc && bun built/test.js",
     "accept": "mv baselines/local/* baselines/reference/",
     "mtsc": "node built/index.js",
-    "format": "prettier --write './**/*.ts'"
-    
+    "format": "prettier --write './src/**/*.ts'"
   },
   "repository": {
     "type": "git",
@@ -33,6 +32,6 @@
   "devDependencies": {
     "@types/node": "^20.11.0",
     "typescript": "latest",
-      "prettier": "^3.0.3"
+    "prettier": "^3.0.3"
   }
 }
