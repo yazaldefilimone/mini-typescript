@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "test": "rm baselines/local/*; tsc && node built/test.js",
+    "test:bun": "rm baselines/local/*; tsc && bun built/test.js",
     "accept": "mv baselines/local/* baselines/reference/",
     "mtsc": "node built/index.js",
     "format": "prettier --write './**/*.ts'"
