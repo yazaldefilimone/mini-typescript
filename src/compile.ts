@@ -10,6 +10,7 @@ import { emit } from './emit'
 export function compile(s: string): [Module, Error[], string] {
   errors.clear()
   const tree = parse(lex(s))
+  // console.log(JSON.stringify(tree, null, 2))
   bind(tree)
   check(tree)
   const js = emit(transform(tree.statements))

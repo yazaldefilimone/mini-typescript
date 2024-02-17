@@ -28,6 +28,12 @@ export function lex(s: string): Lexer {
       scanForward((c) => /[_a-zA-Z0-9]/.test(c))
       text = s.slice(start, pos)
       token = text in keywords ? keywords[text as keyof typeof keywords] : Token.Identifier
+    } else if (s.charAt(pos) === '"') {
+      pos++
+      scanForward((c) => c !== '"')
+      pos++
+      text = s.slice(start, pos)
+      token = Token.StringLiteral
     } else {
       pos++
       switch (s.charAt(pos - 1)) {

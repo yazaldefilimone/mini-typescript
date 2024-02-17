@@ -7,7 +7,7 @@ export function parse(lexer: Lexer): Module {
   function parseModule(): Module {
     const statements = parseSeparated(parseStatement, () => tryParseToken(Token.Semicolon))
     parseExpected(Token.EOF)
-    return { statements, locals: new Map() }
+    return { statements, locals: new Map(), kind: Node.Module }
   }
   function parseExpression(): Expression {
     const pos = lexer.pos()
@@ -23,6 +23,8 @@ export function parse(lexer: Lexer): Module {
       return { kind: Node.Identifier, text: lexer.text(), pos }
     } else if (tryParseToken(Token.Literal)) {
       return { kind: Node.Literal, value: +lexer.text(), pos }
+    } else if (tryParseToken(Token.StringLiteral)) {
+      return { kind: Node.StringLiteral, value: lexer.text(), pos }
     }
     error(pos, 'Expected identifier or literal but got ' + Token[lexer.token()])
     lexer.scan()
@@ -50,7 +52,7 @@ export function parse(lexer: Lexer): Module {
       const typename = parseIdentifier()
       return { kind: Node.TypeAlias, name, typename, pos }
     }
-    return { kind: Node.ExpressionStatement, expr: parseExpression(), pos }
+    return { kind: Node.ExpressionStatement, expression: parseExpression(), pos }
   }
   function tryParseToken(expected: Token) {
     const ok = lexer.token() === expected

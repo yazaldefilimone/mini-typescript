@@ -9,6 +9,7 @@ export enum Token {
   Newline,
   Semicolon,
   Colon,
+  StringLiteral,
   Whitespace,
   Unknown,
   BOF,
@@ -25,7 +26,9 @@ export enum Node {
   Literal,
   Assignment,
   ExpressionStatement,
+  Module,
   Var,
+  StringLiteral,
   TypeAlias,
 }
 export type Error = {
@@ -35,7 +38,7 @@ export type Error = {
 export interface Location {
   pos: number
 }
-export type Expression = Identifier | Literal | Assignment
+export type Expression = Identifier | Literal | Assignment | StringLiteral
 export type Identifier = Location & {
   kind: Node.Identifier
   text: string
@@ -43,6 +46,11 @@ export type Identifier = Location & {
 export type Literal = Location & {
   kind: Node.Literal
   value: number
+}
+
+export type StringLiteral = Location & {
+  kind: Node.StringLiteral
+  value: string
 }
 export type Assignment = Location & {
   kind: Node.Assignment
@@ -52,7 +60,7 @@ export type Assignment = Location & {
 export type Statement = ExpressionStatement | Var | TypeAlias
 export type ExpressionStatement = Location & {
   kind: Node.ExpressionStatement
-  expr: Expression
+  expression: Expression
 }
 export type Var = Location & {
   kind: Node.Var
@@ -72,6 +80,7 @@ export type Symbol = {
 }
 export type Table = Map<string, Symbol>
 export type Module = {
+  kind: Node.Module
   locals: Table
   statements: Statement[]
 }

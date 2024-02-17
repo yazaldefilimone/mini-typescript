@@ -5,7 +5,7 @@ export function emit(statements: Statement[]) {
 function emitStatement(statement: Statement): string {
   switch (statement.kind) {
     case Node.ExpressionStatement:
-      return emitExpression(statement.expr)
+      return emitExpression(statement.expression)
     case Node.Var:
       const typestring = statement.typename ? ': ' + statement.name : ''
       return `var ${statement.name.text}${typestring} = ${emitExpression(statement.init)}`
@@ -19,6 +19,8 @@ function emitExpression(expression: Expression): string {
       return expression.text
     case Node.Literal:
       return '' + expression.value
+    case Node.StringLiteral:
+      return expression.value.slice(1, -1)
     case Node.Assignment:
       return `${expression.name.text} = ${emitExpression(expression.value)}`
   }
