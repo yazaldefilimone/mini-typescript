@@ -4,8 +4,8 @@
     {
       "kind": "ExpressionStatement",
       "expression": {
-        "kind": "Identifier",
-        "text": "x"
+        "kind": "StringLiteral",
+        "value": "\"hello\""
       }
     }
   ]
