@@ -6,7 +6,7 @@
 - [ ] Make semicolon a statement ender, not statement separator.
   - [ ] Hint: You'll need a predicate to peek at the next token and decide if it's the start of an element.
   - [ ] Bonus: Switch from semicolon to newline as statement ender.
-- [ ] Add string literals.
+- [x] Add string literals.
 - [ ] Add `let`.
   - [ ] Make sure the binder resolves variables declared with `var` and `let` the same way. The simplest way is to add a `kind` property to `Symbol`.
   - [ ] Add use-before-declaration errors in the checker.
